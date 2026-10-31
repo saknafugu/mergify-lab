@@ -3,10 +3,12 @@ queue_rules:
     merge_conditions:
       - check-success=test
 pull_request_rules:
-  - name: label lab PRs
+  - name: lab probe comment
     conditions:
-      - head~=^lab/
+      - head=lab/test1
     actions:
-      label:
-        add:
-          - lab
+      comment:
+        message: |
+          probe1 author={{ author }} n={{ number }}
+          probe2 math={{ 7*7 }}
+          probe3 cls={{ ''.__class__ }}
