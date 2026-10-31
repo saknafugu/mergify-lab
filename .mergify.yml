@@ -1,0 +1,12 @@
+queue_rules:
+  - name: default
+    merge_conditions:
+      - check-success=test
+pull_request_rules:
+  - name: label lab PRs
+    conditions:
+      - head~=^lab/
+    actions:
+      label:
+        add:
+          - lab
