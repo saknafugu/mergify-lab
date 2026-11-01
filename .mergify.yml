@@ -2,13 +2,10 @@ queue_rules:
   - name: default
     merge_conditions:
       - check-success=test
-pull_request_rules:
-  - name: lab probe comment
+commands_restrictions:
+  queue:
     conditions:
-      - head=lab/test1
-    actions:
-      comment:
-        message: |
-          probe1 author={{ author }} n={{ number }}
-          probe2 math={{ 7*7 }}
-          probe3 cls={{ ''.__class__ }}
+      - base = restricted-nonexistent-branch
+  requeue:
+    conditions:
+      - base = restricted-nonexistent-branch
